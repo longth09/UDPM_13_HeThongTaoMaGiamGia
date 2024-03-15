@@ -381,7 +381,7 @@ export default function CouponsPage() {
                     <Typography variant="h4" gutterBottom>
                         Coupons
                     </Typography>
-                    <Link to={'/dashboard/coupons/add'}>
+                    <Link to={'/coupons/add'}>
                         <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
                             Thêm Coupon
                         </Button>
@@ -453,8 +453,8 @@ export default function CouponsPage() {
                                     order={order}
                                     orderBy={orderBy}
                                     headLabel={TABLE_HEAD}
-                                    rowCount={listData.length}
-                                    numSelected={selected.length}
+                                    // rowCount={listData.length}
+                                    // numSelected={selected.length}
                                     onRequestSort={handleRequestSort}
                                     onSelectAllClick={handleSelectAllClick}
                                     onStatusFilterChange={(event) => setStatusFilter(event.target.value)}

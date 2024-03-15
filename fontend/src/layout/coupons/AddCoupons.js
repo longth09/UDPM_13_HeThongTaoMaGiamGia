@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 // import {toast} from "react-toastify";
 import { Helmet } from "react-helmet-async";
@@ -199,23 +199,25 @@ const AddCoupons = () => {
 
     };
 
-    function generateRandomCode() {
+    const generateRandomCode = useCallback(() => {
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         const codeLength = 8;
         let code = '';
-
+    
         for (let i = 0; i < codeLength; i += 1) {
             const randomIndex = Math.floor(Math.random() * characters.length);
             code += characters.charAt(randomIndex);
         }
-        coupon.code = code;
+        setCoupon((prevCoupon) => ({ ...prevCoupon, code }));
         return code;
-    }
+    }, []);
+    
 
     const [randomCode, setRandomCode] = useState("");
     useEffect(() => {
         setRandomCode(generateRandomCode());
-    }, []);
+    }, [generateRandomCode]);
+    
 
     const refreshInput = () => {
         setRandomCode(generateRandomCode());
@@ -235,7 +237,7 @@ const AddCoupons = () => {
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
                     <Typography variant="h4" gutterBottom>
-                        Coupons
+                        
                     </Typography>
                 </Stack>
 
