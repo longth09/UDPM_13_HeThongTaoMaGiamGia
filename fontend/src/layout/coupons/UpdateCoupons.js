@@ -243,12 +243,12 @@ const UpdateCoupons = () => {
   return (
     <>
       <Helmet>
-        <title> Coupons | 5F Store </title>
+        <title> Vouchers | SellSmart Codes </title>
       </Helmet>
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            Coupons
+          Vouchers
           </Typography>
         </Stack>
 
@@ -402,7 +402,7 @@ const UpdateCoupons = () => {
             onClick={() => openModal()}
             style={{ marginTop: '20px' }} // Make button wider
           >
-            Update Coupon
+            Update Voucher
           </Button>
         </Box>
       </Container>

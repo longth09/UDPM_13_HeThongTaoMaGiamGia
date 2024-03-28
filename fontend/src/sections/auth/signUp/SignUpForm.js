@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import {Backdrop, TextField} from "@mui/material";
 import Link from "@mui/material/Link";
 import CircularProgress from "@mui/material/CircularProgress";
-import {postSignUp} from "../../../service/taiKhoanKhachHangSevice";
+// import {postSignUp} from "../../../service/taiKhoanKhachHangSevice";
 import {useAlert} from "../../../layouts/dashboard/AlertContext";
 
 
@@ -80,15 +80,15 @@ export default function SignUpForm() {
         let res;
         try {
             handleOpenBD();
-            res = await postSignUp(
-                maTaiKhoan,
-                ho,
-                ten,
-                sdt,
-                email.trim(),
-                matKhau,
-                trangThai
-            );
+            // res = await postSignUp(
+            //     maTaiKhoan,
+            //     ho,
+            //     ten,
+            //     sdt,
+            //     email.trim(),
+            //     matKhau,
+            //     trangThai
+            // );
             console.log("Check res: ", res);
         } catch (error) {
             if (error.response && error.response.data) {

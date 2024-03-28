@@ -284,7 +284,7 @@ export default function CouponsPage() {
 
     // Handle edit
     const handleEdit = () => {
-        navigate(`/dashboard/coupons/update/${object.idCoupon}`);
+        navigate(`/vouchers/update/${object.idCoupon}`);
     };
 
     function formatCurrency(price) {
@@ -373,17 +373,17 @@ export default function CouponsPage() {
     return (
         <>
             <Helmet>
-                <title> Coupons | 5F Store </title>
+                <title> Vouchers | SellSmart Codes </title>
             </Helmet>
 
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
                     <Typography variant="h4" gutterBottom>
-                        Coupons
+                        Vouchers
                     </Typography>
-                    <Link to={'/coupons/add'}>
+                    <Link to={'/vouchers/add'}>
                         <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
-                            Thêm Coupon
+                            Thêm Voucher
                         </Button>
                     </Link>
                 </Stack>

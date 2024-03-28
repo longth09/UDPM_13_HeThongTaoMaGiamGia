@@ -232,7 +232,7 @@ const AddCoupons = () => {
         <>
 
             <Helmet>
-                <title> Coupons | 5F Store </title>
+                <title> Vouchers | SellSmart Codes </title>
             </Helmet>
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
