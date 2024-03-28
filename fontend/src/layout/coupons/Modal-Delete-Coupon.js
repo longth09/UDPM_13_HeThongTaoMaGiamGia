@@ -65,7 +65,7 @@ export default function ModalDeleteCoupon(props) {
       >
         <DialogTitle>{'Xóa Coupon'}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">Xóa Coupon Có Mã Là: {idCoupon}</DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">Xóa Voucher Có Mã Là: {idCoupon}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Hủy</Button>

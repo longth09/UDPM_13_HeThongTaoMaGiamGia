@@ -11,7 +11,7 @@ import Button from "@mui/material/Button";
 import {Backdrop, Dialog, DialogContent, TextField} from "@mui/material";
 import Link from "@mui/material/Link";
 import CircularProgress from "@mui/material/CircularProgress";
-import {postForgetPassword} from "../../../service/taiKhoanKhachHangSevice";
+// import {postForgetPassword} from "../../../service/taiKhoanKhachHangSevice";
 
 
 // ----------------------------------------------------------------------
@@ -29,9 +29,9 @@ export default function ForgetPasswordForm() {
         let res;
         try {
             handleOpenBD();
-            res = await postForgetPassword(
-                email.trim(),
-            );
+            // res = await postForgetPassword(
+            //     email.trim(),
+            // );
             console.log("Check res: ", res);
         } catch (error) {
             if (error.response && error.response.data) {

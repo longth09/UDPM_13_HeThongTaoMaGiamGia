@@ -6,9 +6,9 @@ import axios from 'axios';
 import {Alert, Backdrop, IconButton, InputAdornment, Link, Snackbar, Stack, TextField} from '@mui/material';
 import {LoadingButton} from '@mui/lab';
 // components
-import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
+// import {GoogleLogin, GoogleOAuthProvider} from '@react-oauth/google';
 import CircularProgress from '@mui/material/CircularProgress';
-import Iconify from '../../../components/iconify';
+import Iconify from '../../../component/iconify';
 import {useAlert} from '../../../layouts/dashboard/AlertContext';
 
 // ----------------------------------------------------------------------
@@ -129,9 +129,9 @@ export default function LoginForm() {
   return (
     <>
       <Stack spacing={3}>
-        <GoogleOAuthProvider clientId="964666128031-58ftilgfcv1dtnn3ke442vv5qjmei4da.apps.googleusercontent.com">
+        {/* <GoogleOAuthProvider clientId="964666128031-58ftilgfcv1dtnn3ke442vv5qjmei4da.apps.googleusercontent.com">
           <GoogleLogin onSuccess={responseGoogle} onFailure={responseGoogle} cookiePolicy="single_host_origin" />
-        </GoogleOAuthProvider>
+        </GoogleOAuthProvider> */}
 
         <TextField name="email" label="Email" value={params.email.trim()} onChange={(e) => getParam(e)} />
 

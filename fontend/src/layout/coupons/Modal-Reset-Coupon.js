@@ -65,7 +65,7 @@ export default function ModalResetCoupon(props) {
       >
         <DialogTitle>{'Reset Coupon'}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">Reset Coupon Có Mã Là: {idCoupon}</DialogContentText>
+          <DialogContentText id="alert-dialog-slide-description">Reset Voucher Có Mã Là: {idCoupon}</DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Hủy</Button>
