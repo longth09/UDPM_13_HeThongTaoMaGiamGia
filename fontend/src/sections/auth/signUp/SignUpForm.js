@@ -61,16 +61,16 @@ export default function SignUpForm() {
     };
 
     useEffect(() => {
-        setValidationErrors((prevErrors) => ({ ...prevErrors, ho: '' }));
+        setValidationErrors((prevErrors) => ({...prevErrors, ho: ''}));
     }, [ho]);
     useEffect(() => {
-        setValidationErrors((prevErrors) => ({ ...prevErrors, ten: '' }));
+        setValidationErrors((prevErrors) => ({...prevErrors, ten: ''}));
     }, [ten]);
     useEffect(() => {
-        setValidationErrors((prevErrors) => ({ ...prevErrors, sdt: '' }));
+        setValidationErrors((prevErrors) => ({...prevErrors, sdt: ''}));
     }, [sdt]);
     useEffect(() => {
-        setValidationErrors((prevErrors) => ({ ...prevErrors, email: '' }));
+        setValidationErrors((prevErrors) => ({...prevErrors, email: ''}));
     }, [email]);
 
     const handleSave = async () => {

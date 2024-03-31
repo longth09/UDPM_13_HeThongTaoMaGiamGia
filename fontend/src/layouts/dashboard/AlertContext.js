@@ -1,14 +1,14 @@
 // AlertContext.js
 
-import { createContext, useContext, useState } from 'react';
+import {createContext, useContext, useState} from 'react';
 
 const AlertContext = createContext();
 
-export const AlertProvider = ({ children }) => {
+export const AlertProvider = ({children}) => {
     const [alertContent, setAlertContent] = useState(null);
 
     const showAlert = (type, message) => {
-        setAlertContent({ type, message });
+        setAlertContent({type, message});
     };
 
     const clearAlert = () => {
@@ -16,7 +16,7 @@ export const AlertProvider = ({ children }) => {
     };
 
     return (
-        <AlertContext.Provider value={{ alertContent, showAlert, clearAlert }}>
+        <AlertContext.Provider value={{alertContent, showAlert, clearAlert}}>
             {children}
         </AlertContext.Provider>
     );

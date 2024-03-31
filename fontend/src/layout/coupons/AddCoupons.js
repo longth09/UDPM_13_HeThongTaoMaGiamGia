@@ -1,14 +1,14 @@
-import { useCallback, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import {useCallback, useEffect, useState} from "react";
+import {useNavigate} from "react-router-dom";
 // import {toast} from "react-toastify";
-import { Helmet } from "react-helmet-async";
-import { Alert, Box, Button, Container, InputAdornment, Snackbar, Stack, TextField, Typography } from "@mui/material";
-import { DateTimePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { vi } from 'date-fns/locale'; // Import locale cho tiếng Việt
+import {Helmet} from "react-helmet-async";
+import {Alert, Box, Button, Container, InputAdornment, Snackbar, Stack, TextField, Typography} from "@mui/material";
+import {DateTimePicker, LocalizationProvider} from "@mui/x-date-pickers";
+import {vi} from 'date-fns/locale'; // Import locale cho tiếng Việt
 import RefreshIcon from '@mui/icons-material/Refresh';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import {AdapterDayjs} from '@mui/x-date-pickers/AdapterDayjs';
 import dayjs from 'dayjs';
-import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
+import {DemoContainer, DemoItem} from "@mui/x-date-pickers/internals/demo";
 // import { add } from "../../service/CouponsService";
 import Iconify from "../../component/iconify";
 import ModalComfirm from "../../forms/Modal-Comfirm";
@@ -39,7 +39,7 @@ const AddCoupons = () => {
     // const {name, code, moTa, thoiGianKetThuc, soLuong, hoaDon, phanTram, tienToiThieu, soLuongHienTai} = coupon;
 
     const onInputChange = (e) => {
-        setCoupon({ ...coupon, [e.target.name]: e.target.value });
+        setCoupon({...coupon, [e.target.name]: e.target.value});
     };
 
     const openModal = () => {
@@ -58,13 +58,13 @@ const AddCoupons = () => {
         setAlertContent(null);
     };
 
-    const { tenChuongTrinh, code, soLuong, phanTram, tienToiThieu } = coupon;
+    const {tenChuongTrinh, code, soLuong, phanTram, tienToiThieu} = coupon;
 
 
     const selectedDatekt = dayjs(ngayKetThuc);
-    const ngaykt = selectedDatekt.format('YYYY-MM-DDTHH:mm:ss', { locale: vi });
+    const ngaykt = selectedDatekt.format('YYYY-MM-DDTHH:mm:ss', {locale: vi});
     const selectedDateBd = dayjs(ngayBatDau);
-    const ngayBd = selectedDateBd.format('YYYY-MM-DDTHH:mm:ss', { locale: vi });
+    const ngayBd = selectedDateBd.format('YYYY-MM-DDTHH:mm:ss', {locale: vi});
 
     console.log("couponAdd: ", coupon);
 
@@ -203,21 +203,21 @@ const AddCoupons = () => {
         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         const codeLength = 8;
         let code = '';
-    
+
         for (let i = 0; i < codeLength; i += 1) {
             const randomIndex = Math.floor(Math.random() * characters.length);
             code += characters.charAt(randomIndex);
         }
-        setCoupon((prevCoupon) => ({ ...prevCoupon, code }));
+        setCoupon((prevCoupon) => ({...prevCoupon, code}));
         return code;
     }, []);
-    
+
 
     const [randomCode, setRandomCode] = useState("");
     useEffect(() => {
         setRandomCode(generateRandomCode());
     }, [generateRandomCode]);
-    
+
 
     const refreshInput = () => {
         setRandomCode(generateRandomCode());
@@ -237,7 +237,7 @@ const AddCoupons = () => {
             <Container>
                 <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
                     <Typography variant="h4" gutterBottom>
-                        
+
                     </Typography>
                 </Stack>
 
@@ -272,7 +272,7 @@ const AddCoupons = () => {
                             endAdornment: (
                                 <InputAdornment position="end">
                                     <Button size="small" onClick={() => refreshInput()}>
-                                        <RefreshIcon data-testid="RefreshIcon" />
+                                        <RefreshIcon data-testid="RefreshIcon"/>
                                     </Button>
                                 </InputAdornment>
                             ),
@@ -381,9 +381,9 @@ const AddCoupons = () => {
 
                     <Button
                         size={"large"}
-                        variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}
+                        variant="contained" startIcon={<Iconify icon="eva:plus-fill"/>}
                         onClick={() => openModal()}
-                        style={{ marginTop: "20px" }} // Make button wider
+                        style={{marginTop: "20px"}} // Make button wider
                     >
                         Thêm Coupon Mới
                     </Button>
@@ -396,14 +396,15 @@ const AddCoupons = () => {
                     open
                     autoHideDuration={3000}
                     onClose={handleSnackbarClose}
-                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    anchorOrigin={{vertical: 'top', horizontal: 'right'}}
                 >
-                    <Alert onClose={handleSnackbarClose} severity={alertContent.type} sx={{ width: '100%' }}>
+                    <Alert onClose={handleSnackbarClose} severity={alertContent.type} sx={{width: '100%'}}>
                         {alertContent.message}
                     </Alert>
                 </Snackbar>
             )}
-            <ModalComfirm open={open} handleClose={handleClose} information={handleSave} title={"Xác nhận thêm"} discription={"Xác nhận thêm coupon"} />
+            <ModalComfirm open={open} handleClose={handleClose} information={handleSave} title={"Xác nhận thêm"}
+                          discription={"Xác nhận thêm coupon"}/>
         </>
     );
 };

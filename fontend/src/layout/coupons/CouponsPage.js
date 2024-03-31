@@ -1,8 +1,8 @@
-import { Helmet } from 'react-helmet-async';
-import { filter } from 'lodash';
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { format } from 'date-fns';
+import {Helmet} from 'react-helmet-async';
+import {filter} from 'lodash';
+import {useState, useEffect} from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import {format} from 'date-fns';
 // @mui
 import {
     Card,
@@ -27,13 +27,13 @@ import {
     TextField,
 } from '@mui/material';
 import GetAppIcon from '@mui/icons-material/GetApp';
-import { Grid, makeStyles } from '@material-ui/core';
-import { CSVLink } from 'react-csv';
+import {Grid, makeStyles} from '@material-ui/core';
+import {CSVLink} from 'react-csv';
 // components
 import Iconify from '../../component/iconify';
 import Scrollbar from '../../component/iconify';
 // sections
-import { UserListHead } from '../../sections/@dashboard/user';
+import {UserListHead} from '../../sections/@dashboard/user';
 // mock
 // import USERLIST from '../_mock/user';
 // import { useEffect } from 'react';
@@ -45,16 +45,16 @@ import UserListToolbarCoupons from './UserListToolbarCoupons';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-    { id: 'stt', label: 'STT', alignRight: false },
-    { id: 'tenChuongTrinh', label: 'Chương Trình', alignRight: false },
-    { id: 'code', label: 'Code', alignRight: false },
-    { id: 'moTa', label: 'Mô Tả', alignRight: false },
-    { id: 'thoigian', label: 'Thời Gian', alignRight: false },
-    { id: 'soLuongHienTai', label: 'Số Lượng', alignRight: false },
-    { id: 'phanTram', label: 'Mức Giảm', alignRight: false },
-    { id: 'tienToiThieu', label: 'Số Tiền Tối Thiểu', alignRight: false },
-    { id: 'trangthai', label: 'Trạng Thái', alignRight: false },
-    { id: 'thaotac', label: 'Thao Tác', alignRight: false }
+    {id: 'stt', label: 'STT', alignRight: false},
+    {id: 'tenChuongTrinh', label: 'Chương Trình', alignRight: false},
+    {id: 'code', label: 'Code', alignRight: false},
+    {id: 'moTa', label: 'Mô Tả', alignRight: false},
+    {id: 'thoigian', label: 'Thời Gian', alignRight: false},
+    {id: 'soLuongHienTai', label: 'Số Lượng', alignRight: false},
+    {id: 'phanTram', label: 'Mức Giảm', alignRight: false},
+    {id: 'tienToiThieu', label: 'Số Tiền Tối Thiểu', alignRight: false},
+    {id: 'trangthai', label: 'Trạng Thái', alignRight: false},
+    {id: 'thaotac', label: 'Thao Tác', alignRight: false}
 ];
 
 // ----------------------------------------------------------------------
@@ -142,6 +142,7 @@ export default function CouponsPage() {
 
         return stabilizedThis.map((el) => el[0]);
     }
+
     // Show Data On Tables
     // const [numberPages, setNumberPages] = useState(0);
     const getListData = async () => {
@@ -237,24 +238,25 @@ export default function CouponsPage() {
             label="Hoạt động"
             color="primary"
             variant="outlined"
-            style={{ color: 'white', backgroundColor: 'green', border: 'none' }}
+            style={{color: 'white', backgroundColor: 'green', border: 'none'}}
         /> : trangThai === 1 ? <Chip
             label="Chờ Giảm Giá"
             color="secondary"
             variant="outlined"
-            style={{ color: 'black', backgroundColor: 'yellow', border: 'none' }}
+            style={{color: 'black', backgroundColor: 'yellow', border: 'none'}}
         /> : trangThai === 10 ? <Chip
             label="Dừng hoạt động"
             color="secondary"
             variant="outlined"
-            style={{ color: 'white', backgroundColor: 'red', border: 'none' }}
+            style={{color: 'white', backgroundColor: 'red', border: 'none'}}
         /> : <Chip
             label="Không xác định"
             color="warning"
             variant="outlined"
-            style={{ color: 'white', backgroundColor: 'red', border: 'none' }}
+            style={{color: 'white', backgroundColor: 'red', border: 'none'}}
         />;
     }
+
     const navigate = useNavigate();
 
     // Create a new Detail Direct
@@ -382,14 +384,16 @@ export default function CouponsPage() {
                         Vouchers
                     </Typography>
                     <Link to={'/vouchers/add'}>
-                        <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill" />}>
+                        <Button variant="contained" startIcon={<Iconify icon="eva:plus-fill"/>}>
                             Thêm Voucher
                         </Button>
                     </Link>
                 </Stack>
 
                 <Card>
-                    <UserListToolbarCoupons numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} information={selected} getListData={getListData} />
+                    <UserListToolbarCoupons numSelected={selected.length} filterName={filterName}
+                                            onFilterName={handleFilterByName} information={selected}
+                                            getListData={getListData}/>
                     <Grid container className={classes.filterContainer}>
                         <TextField
                             label="Ngày Bắt Đầu"
@@ -437,7 +441,7 @@ export default function CouponsPage() {
                                 aria-label="download"
                                 Button
                                 variant="outlined"
-                                startIcon={<GetAppIcon />}
+                                startIcon={<GetAppIcon/>}
                                 size="large"
                                 color="success"
                             >
@@ -447,7 +451,7 @@ export default function CouponsPage() {
                     </Grid>
 
                     <Scrollbar>
-                        <TableContainer sx={{ minWidth: 800 }}>
+                        <TableContainer sx={{minWidth: 800}}>
                             <Table>
                                 <UserListHead
                                     order={order}
@@ -466,13 +470,26 @@ export default function CouponsPage() {
 
                                 <TableBody>
                                     {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, index) => {
-                                        const { idCoupon, tenChuongTrinh, trangThai, code, moTa, thoiGianKetThuc, thoiGianTao, soLuongHienTai, phanTram, tienToiThieu } = row;
+                                        const {
+                                            idCoupon,
+                                            tenChuongTrinh,
+                                            trangThai,
+                                            code,
+                                            moTa,
+                                            thoiGianKetThuc,
+                                            thoiGianTao,
+                                            soLuongHienTai,
+                                            phanTram,
+                                            tienToiThieu
+                                        } = row;
                                         const selectedUser = selected.indexOf(idCoupon) !== -1;
 
                                         return (
-                                            <TableRow hover key={idCoupon} tabIndex={-1} role="checkbox" selected={selectedUser}>
+                                            <TableRow hover key={idCoupon} tabIndex={-1} role="checkbox"
+                                                      selected={selectedUser}>
                                                 <TableCell padding="checkbox">
-                                                    <Checkbox checked={selectedUser} onChange={(event) => handleClick(event, idCoupon)} />
+                                                    <Checkbox checked={selectedUser}
+                                                              onChange={(event) => handleClick(event, idCoupon)}/>
                                                 </TableCell>
                                                 {/* {id: 'stt', label: 'STT', alignRight: false },
                                                 {id: 'name', label: 'Chương Trình', alignRight: false },
@@ -488,22 +505,24 @@ export default function CouponsPage() {
                                                 <TableCell align="left">{tenChuongTrinh}</TableCell>
                                                 <TableCell align="left">{code}</TableCell>
                                                 <TableCell align="left">{moTa}</TableCell>
-                                                <TableCell align="left">{`${formatDate(thoiGianTao)} - ${formatDate(thoiGianKetThuc)}`}</TableCell>
+                                                <TableCell
+                                                    align="left">{`${formatDate(thoiGianTao)} - ${formatDate(thoiGianKetThuc)}`}</TableCell>
                                                 <TableCell align="left">{soLuongHienTai}</TableCell>
                                                 <TableCell align="left">{`${phanTram} %`}</TableCell>
                                                 <TableCell align="left">{`${formatCurrency(tienToiThieu)}`}</TableCell>
                                                 <TableCell align="left">{mapTrangThaiToStatus(trangThai)}</TableCell>
                                                 <TableCell align="right">
-                                                    <IconButton size="large" color="inherit" onClick={(event) => handleOpenMenu(event, row)}>
-                                                        <Iconify icon={'eva:more-vertical-fill'} />
+                                                    <IconButton size="large" color="inherit"
+                                                                onClick={(event) => handleOpenMenu(event, row)}>
+                                                        <Iconify icon={'eva:more-vertical-fill'}/>
                                                     </IconButton>
                                                 </TableCell>
                                             </TableRow>
                                         );
                                     })}
                                     {emptyRows > 0 && (
-                                        <TableRow style={{ height: 53 * emptyRows }}>
-                                            <TableCell colSpan={3} />
+                                        <TableRow style={{height: 53 * emptyRows}}>
+                                            <TableCell colSpan={3}/>
                                         </TableRow>
                                     )}
                                 </TableBody>
@@ -511,7 +530,7 @@ export default function CouponsPage() {
                                 {isNotFound && (
                                     <TableBody>
                                         <TableRow>
-                                            <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
+                                            <TableCell align="center" colSpan={6} sx={{py: 3}}>
                                                 <Paper
                                                     sx={{
                                                         textAlign: 'center',
@@ -524,7 +543,7 @@ export default function CouponsPage() {
                                                     <Typography variant="body2">
                                                         No results found for &nbsp;
                                                         <strong>&quot;{filterName}&quot;</strong>.
-                                                        <br /> Try checking for typos or using complete words.
+                                                        <br/> Try checking for typos or using complete words.
                                                     </Typography>
                                                 </Paper>
                                             </TableCell>
@@ -551,8 +570,8 @@ export default function CouponsPage() {
                 open={Boolean(open)}
                 anchorEl={open}
                 onClose={handleCloseMenu}
-                anchorOrigin={{ vertical: 'top', horizontal: 'left' }}
-                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                anchorOrigin={{vertical: 'top', horizontal: 'left'}}
+                transformOrigin={{vertical: 'top', horizontal: 'right'}}
                 PaperProps={{
                     sx: {
                         p: 1,
@@ -566,35 +585,35 @@ export default function CouponsPage() {
                 }}
             >
                 <MenuItem onClick={() => handleEdit()}>
-                    <Iconify icon={'eva:edit-fill'} sx={{ mr: 2 }} />
+                    <Iconify icon={'eva:edit-fill'} sx={{mr: 2}}/>
                     Edit
                 </MenuItem>
 
                 {object.trangThai === 10 && (
-                    <MenuItem onClick={() => handleReset()} sx={{ color: 'primary.main' }}>
-                        <Iconify icon={'bi:arrow-repeat'} sx={{ mr: 2 }} />
+                    <MenuItem onClick={() => handleReset()} sx={{color: 'primary.main'}}>
+                        <Iconify icon={'bi:arrow-repeat'} sx={{mr: 2}}/>
                         Reset
                     </MenuItem>
                 )}
 
                 {object.trangThai === 0 && (
-                    <MenuItem onClick={handleDelete} sx={{ color: 'error.main' }}>
-                        <Iconify icon={'eva:trash-2-outline'} sx={{ mr: 2 }} />
+                    <MenuItem onClick={handleDelete} sx={{color: 'error.main'}}>
+                        <Iconify icon={'eva:trash-2-outline'} sx={{mr: 2}}/>
                         Delete
                     </MenuItem>
                 )}
             </Popover>
             {/* Dialog xác nhận xóa */}
-            <ModalDeleteCoupon open={openDelete} handleClose={handleClose} information={information} />
-            <ModalResetCoupon open={openReset} handleClose={handleClose} information={information} />
+            <ModalDeleteCoupon open={openDelete} handleClose={handleClose} information={information}/>
+            <ModalResetCoupon open={openReset} handleClose={handleClose} information={information}/>
             {alertContent && (
                 <Snackbar
                     open
                     autoHideDuration={3000}
                     onClose={handleSnackbarClose}
-                    anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+                    anchorOrigin={{vertical: 'top', horizontal: 'right'}}
                 >
-                    <Alert onClose={handleSnackbarClose} severity={alertContent.type} sx={{ width: '100%' }}>
+                    <Alert onClose={handleSnackbarClose} severity={alertContent.type} sx={{width: '100%'}}>
                         {alertContent.message}
                     </Alert>
                 </Snackbar>
