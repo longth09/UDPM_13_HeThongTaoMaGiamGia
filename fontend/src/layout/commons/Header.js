@@ -63,7 +63,7 @@ const Header = () => {
                     </div>
                 </div>
 
-                <ListAll></ListAll>
+                <ListAll/>
 
                 <div className=''>
                     <Navbar expand="lg" className=" ">
