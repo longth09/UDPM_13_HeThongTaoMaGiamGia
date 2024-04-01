@@ -8,6 +8,8 @@ import LoginPage from './pages/LoginPage';
 import SignUpPage from './pages/SignUpPage';
 import ForgetPasswordPage from './pages/ForgetPasswordPage';
 import UpdateCoupons from './layout/coupons/UpdateCoupons';
+import { WalletModalProvider } from '@solana/wallet-adapter-react-ui';
+require("@solana/wallet-adapter-react-ui/styles.css");
 
 function App() {
     return (
@@ -30,9 +32,11 @@ function App() {
 function LayoutWithHeaderFooter({children}) {
     return (
         <>
+        <WalletModalProvider>
             <Header/>
             {children}
             <Footer/>
+            </WalletModalProvider>
         </>
     );
 }
