@@ -1,7 +1,7 @@
-import { Outlet } from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import Footer from '../client/Footer';
 import Header from '../client/Header';
-import { AlertProvider } from "./AlertContext";
+import {AlertProvider} from "./AlertContext";
 import AlertSnackbar from "./AlertSnackbar";
 // @mui
 //
@@ -11,20 +11,20 @@ import AlertSnackbar from "./AlertSnackbar";
 // ----------------------------------------------------------------------
 
 export default function DashboardLayoutClient() {
-  return (
-    // <StyledRoot>
-    //   <Main>
-    <>
-      <AlertProvider >
-        <AlertSnackbar />
+    return (
+        // <StyledRoot>
+        //   <Main>
+        <>
+            <AlertProvider>
+                <AlertSnackbar/>
 
-        <Header />
-        <Outlet />
-        <Footer />
-      </AlertProvider>
-    </>
+                <Header/>
+                <Outlet/>
+                <Footer/>
+            </AlertProvider>
+        </>
 
-    //   </Main>
-    // </StyledRoot>
-  );
+        //   </Main>
+        // </StyledRoot>
+    );
 }
